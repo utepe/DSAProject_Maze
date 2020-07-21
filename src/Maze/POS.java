@@ -1,6 +1,6 @@
 package Maze;
 
-public public class POS {
+public class POS {
 	public int x;
 	public int y;
 	
