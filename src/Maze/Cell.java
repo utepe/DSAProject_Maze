@@ -59,10 +59,10 @@ public class Cell {
         }
 
         int y2 = y - neighbor.y;
-        if(y2 == 1) { // neighbor is above current cell
+        if(y2 == -1) { // neighbor is above current cell
             walls[0] = false;
             neighbor.walls[2] = false;
-        } else if (y2 == -1){ // neighbor is below current cell
+        } else if (y2 == 1){ // neighbor is below current cell
             walls[2] = false;
             neighbor.walls[0] = false;
         }
