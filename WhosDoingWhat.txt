@@ -1,0 +1,8 @@
+MAZE GENERATION/solver:
+
+Liam: MazeGeneration, Cell Class, GUI, Prim-Jarniks Algorithim, Kruskals Algorithim  
+
+Zach: MazeGeneration, Cell Class, Base Data strutures, Dijkstras Solving algorithim  
+
+Uygur: MazeGeneration, Cell Class, GUI, DFS, BFS Solving Algorithms
+
