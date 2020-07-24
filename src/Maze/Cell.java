@@ -17,9 +17,9 @@ public class Cell {
     }
 
     public void drawCell(Graphics g) { // color the cell appropriately and draw the walls if there are any
-        /*if (isVisited()) { // visited cells are white
+        if (isVisited()) { // visited cells are white
             setCellColor(g, Color.WHITE);
-        }*/
+        }
         if (isSolution()) { // cells that are part of the most optimal solution are yellow
             setCellColor(g, Color.YELLOW);
         } else if (isDeadEnd()) { // cells that lead to a dead end are red
@@ -43,7 +43,7 @@ public class Cell {
 
     public void setCellColor(Graphics g, Color color){
         int col2 = col * CELL_DIMS;
-        int row2 = col * CELL_DIMS;
+        int row2 = row * CELL_DIMS;
         g.setColor(color);
         g.fillRect(col2, row2, CELL_DIMS, CELL_DIMS);
     }
