@@ -1,6 +1,5 @@
 package Generator;
 
-import Solver.MazeSolver;
 import Solver.RecursiveSolve;
 
 public class Maze {
