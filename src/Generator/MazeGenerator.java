@@ -1,7 +1,6 @@
 package Generator;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Stack;
@@ -39,6 +38,7 @@ public class MazeGenerator {
                 cellStack.push(current);
                 current = next;
                 current.setVisited(true);
+                current.setDistance(cellStack.size());
             } else {
                 current = cellStack.pop();
             }
@@ -62,3 +62,4 @@ public class MazeGenerator {
             return null;
     }
 }
+
