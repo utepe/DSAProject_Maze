@@ -1,4 +1,4 @@
-package Maze;
+package Solver;
 
 public class POS {
 	public int x;

@@ -1,9 +1,19 @@
-package Maze;
+package Lists;
 
 public class LinkedList<E> {
     public Node<E> head;
     private Node<E> tail;
     private int length;
+
+    static class Node<E> {
+        Node<E> next;
+        E data;
+    
+        public Node(E data){
+            this.data = data;
+            this.next = null;
+        }
+    }
 
     public LinkedList(){
         this.length = 0;
