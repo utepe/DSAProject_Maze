@@ -5,9 +5,11 @@ import java.awt.*;
 public class Cell {
     public static final int CELL_DIMS = 5;
     private int col, row; // col, row position of the cell.
-    private boolean visited = false; // has this cell alreadrow been visited?
+    private boolean visited = false; // has this cell already  been visited?
     private boolean solution = false; // is this cell part of the most optimal path?
     private boolean deadEnd = false;
+
+    private double distance;
 
     private boolean[] walls = {true, true, true, true}; // N E S W walls. true = a wall is present
 
@@ -17,11 +19,11 @@ public class Cell {
     }
 
     public void drawCell(Graphics g) { // color the cell appropriately and draw the walls if there are any
-        /*if (isVisited()) { // visited cells are white
+        if (isVisited()) { // visited cells are white
             setCellColor(g, Color.WHITE);
-        }*/
+        }
         if (isSolution()) { // cells that are part of the most optimal solution are yellow
-            setCellColor(g, Color.YELLOW);
+            setCellColor(g, Color.BLUE);
         } else if (isDeadEnd()) { // cells that lead to a dead end are red
             setCellColor(g, Color.RED);
         }
@@ -32,18 +34,18 @@ public class Cell {
 
         g.setColor(Color.BLACK); // walls are black
         if (walls[0]) // north wall
-            g.drawLine(col2 + CELL_DIMS, row2 + CELL_DIMS, col2, row2 + CELL_DIMS);
+            g.drawLine(col2, row2, col2 + CELL_DIMS, row2);
         if (walls[1]) // east wall
             g.drawLine(col2 + CELL_DIMS, row2, col2 + CELL_DIMS, row2 + CELL_DIMS);
         if (walls[2]) // south wall
-            g.drawLine(col2, row2, col2 + CELL_DIMS, row2);
+            g.drawLine(col2 + CELL_DIMS, row2 + CELL_DIMS, col2, row2 + CELL_DIMS);
         if (walls[3]) // west wall
             g.drawLine(col2, row2 + CELL_DIMS, col2, row2);
     }
 
     public void setCellColor(Graphics g, Color color){
         int col2 = col * CELL_DIMS;
-        int row2 = col * CELL_DIMS;
+        int row2 = row * CELL_DIMS;
         g.setColor(color);
         g.fillRect(col2, row2, CELL_DIMS, CELL_DIMS);
     }
@@ -59,10 +61,10 @@ public class Cell {
         }
 
         int row2 = row - neighbor.row;
-        if(row2 == -1) { // neighbor is above current cell
+        if(row2 == 1) { // neighbor is above current cell
             walls[0] = false;
             neighbor.walls[2] = false;
-        } else if (row2 == 1){ // neighbor is below current cell
+        } else if (row2 == -1){ // neighbor is below current cell
             walls[2] = false;
             neighbor.walls[0] = false;
         }
@@ -99,6 +101,10 @@ public class Cell {
         return solution;
     }
 
+    public void setSolution(boolean solution) {
+        this.solution = solution;
+    }
+
     public void setPath(boolean solution) {
         this.solution = solution;
     }
@@ -109,5 +115,13 @@ public class Cell {
 
     public void setDeadEnd(boolean deadEnd) {
         this.deadEnd = deadEnd;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
     }
 }
