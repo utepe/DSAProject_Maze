@@ -1,4 +1,4 @@
-package Lists;
+package ADTs;
 
 public class List<E> {
     private static final int DEFAULT_SIZE = 10;
