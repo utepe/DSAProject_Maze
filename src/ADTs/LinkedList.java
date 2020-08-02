@@ -1,4 +1,4 @@
-package Lists;
+package ADTs;
 
 public class LinkedList<E> {
     public Node<E> head;
@@ -143,7 +143,7 @@ public class LinkedList<E> {
         return currentNode;
     }
 
-    private Boolean isEmpty(){
+    public Boolean isEmpty(){
         return this.length == 0;
     }
 
