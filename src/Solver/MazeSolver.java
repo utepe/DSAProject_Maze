@@ -1,4 +1,4 @@
-package Maze;
+package Solver;
 
 import java.util.Random;
 import Lists.LinkedList;
