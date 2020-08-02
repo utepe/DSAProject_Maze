@@ -3,8 +3,7 @@ package Solver;
 import java.util.Random;
 import ADTs.LinkedList;
 
-public class MazeSolver
-{
+public class MazeSolver{
 	/*MAZE GENERATION MANUAL
 	With a INT array
 	*/
