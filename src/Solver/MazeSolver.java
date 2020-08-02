@@ -1,7 +1,7 @@
 package Solver;
 
 import java.util.Random;
-import Lists.LinkedList;
+import ADTs.LinkedList;
 
 public class MazeSolver
 {

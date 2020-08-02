@@ -1,7 +1,9 @@
 package Solver;
 
+import Generator.*;
+
 public class DijkstraSolve{
-    Cell[][] maze;
+    public Cell[][] maze;
 
     public DijkstraSolve(Cell[][] maze) {
         this.maze = maze;
