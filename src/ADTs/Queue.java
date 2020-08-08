@@ -1,7 +1,7 @@
 package ADTs;
 
-public class Stack<E> {
-    private Node<E> top, bottom;
+public class Queue<E> {
+    private Node<E> first, last;
     private int size;
 
 
@@ -16,11 +16,11 @@ public class Stack<E> {
     }
 
     /**
-     * Stack Contructor
+     * LLQueue Contructor
      */
-    public Stack(){
-        this.top = null;
-        this.bottom = null;
+    public Queue(){
+        this.first = null;
+        this.last = null;
         this.size = 0;
     }
 
@@ -34,7 +34,7 @@ public class Stack<E> {
 
     /**
      * isFull Method
-     * @return False since stack can never be full
+     * @return False since LLQueue can never be full
      */
     public boolean isFull(){
         return false;
@@ -42,28 +42,34 @@ public class Stack<E> {
 
     /**
      * enqueue Method
-     * inserts the entered data to the top of the stack
+     * inserts the entered data to the rear of thre queue
      * @param data
      */
-    public void push(E data){
+    public void enqueue(E data){
         Node<E> newNode = new Node<E>(data);
-        newNode.next = this.top;
-        this.top = newNode;
+        if(isEmpty()){
+            this.first = newNode;
+            this.last = newNode;
+        }
+        else{
+            this.last.next = newNode;
+            this.last = newNode;
+        }
         this.size++;
     }
     
     /**
      * dequeue Method
-     * removed and returns the data at the top of the Stack
+     * removed and returns the data at the front of the Queue
      * @return element
      */
-    public E pop(){
+    public E dequeue(){
         if(isEmpty()) return null;
-        if(this.top == this.bottom) this.bottom = null;
-        Node<E> topEle = this.top;
-        this.top = this.top.next;
+        if(this.first == this.last) this.last = null;
+        Node<E> firstEle = this.first;
+        this.first = this.first.next;
         this.size--;
-        return topEle.data;
+        return firstEle.data;
     }
 
     /**
@@ -74,7 +80,7 @@ public class Stack<E> {
     public E peek(){
         if(isEmpty()) return null;
         else{
-            return this.top.data;
+            return this.first.data;
         }
     }
 
@@ -82,22 +88,22 @@ public class Stack<E> {
      * getSize Method
      * @return the current size of the Queue
      */
-    public int Size(){
+    public int getSize(){
         return this.size;
     }
 
     /**
      * display Method
-     * prints each element of the Queue from top to bottom
+     * prints each element of the Queue from first to last
      */
     public void display(){
-        Node<E> current = this.top;
+        Node<E> current = this.first;
 
-        System.out.print("top -> ");
+        System.out.print("first -> ");
         while(current != null){
             System.out.print(current.data + ", ");
             current = current.next;
         }
-        System.out.println("<- bottom");
+        System.out.println("<- last");
     }
 }
