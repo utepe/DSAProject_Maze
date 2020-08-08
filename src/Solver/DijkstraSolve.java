@@ -1,5 +1,6 @@
 package Solver;
 
+import ADTs.PriorityQueue;
 import Generator.*;
 
 public class DijkstraSolve{

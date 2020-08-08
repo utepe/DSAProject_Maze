@@ -4,11 +4,7 @@ import Solver.*;
 import java.util.Scanner;
 
 public class Maze {
-<<<<<<< HEAD
     public static void main(String[] args) throws Exception {
-=======
-    public static void main(String[] args) throws Exception{
->>>>>>> 4583c02806c23d2f7d5c57921651315dbd7518a1
         MazeGenerator generated = new MazeGenerator(); // initialize and generate the maze using recursive backtracking
         Scanner sc = new Scanner(System.in);
         System.out.println("Maze Generator & Solver Menu");
