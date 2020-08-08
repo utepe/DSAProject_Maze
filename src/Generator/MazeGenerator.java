@@ -1,8 +1,11 @@
 package Generator;
 
 import javax.swing.*;
+
+import ADTs.List;
+import ADTs.Stack;
+
 import java.util.Random;
-import java.util.Stack;
 
 public class MazeGenerator {
     Cell[][] maze;
@@ -37,11 +40,11 @@ public class MazeGenerator {
                 cellStack.push(current);
                 current = next;
                 current.setVisited(true);
-                current.setDistance(cellStack.size());
+                current.setDistance(cellStack.Size());
             } else {
                 current = cellStack.pop();
             }
-        } while(!cellStack.empty());
+        } while(!cellStack.isEmpty());
     }
 
     private Cell getNeighbor(Cell cell) throws Exception { // find all unvisited neighbors next to cell and return a random one

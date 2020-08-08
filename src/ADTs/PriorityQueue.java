@@ -1,9 +1,21 @@
 package ADTs;
 
-public class PriorityQueue<E>{
+public class PriorityQueue<E> {
     private PNode<E> head, tail; // head and tail point to first and last nodes
     private int size, maxSize;
 
+    static class PNode<E>{
+        E data; // holds data of type e
+        PNode<E> next; // points to next node
+        int priority;  // priority of the node
+    
+        public PNode(E data, int priority){ // constructor
+            this.data = data;
+            this.priority = priority;
+            this.next = null;
+        }
+    }
+    
     public PriorityQueue(int size){ // constructor
         this.head = this.tail = null;
         this.maxSize = size;
