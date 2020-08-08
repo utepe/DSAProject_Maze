@@ -1,7 +1,6 @@
 package Generator;
 
 import javax.swing.*;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Stack;
 
@@ -13,7 +12,7 @@ public class MazeGenerator {
     int rows = MAZE_SIZE;
 
 
-    public MazeGenerator(){
+    public MazeGenerator() throws Exception {
         maze = new Cell[cols][rows];
         initializeCells();
         RecursiveBacktrackGenerate();
@@ -27,7 +26,7 @@ public class MazeGenerator {
         }
     }
 
-    private void RecursiveBacktrackGenerate(){
+    private void RecursiveBacktrackGenerate() throws Exception {
         Stack<Cell> cellStack = new Stack<>();
         Cell current = maze[0][0], next;
         current.setVisited(true);
@@ -45,8 +44,8 @@ public class MazeGenerator {
         } while(!cellStack.empty());
     }
 
-    private Cell getNeighbor(Cell cell){ // find all unvisited neighbors next to cell and return a random one
-        ArrayList<Cell> a = new ArrayList<>();
+    private Cell getNeighbor(Cell cell) throws Exception { // find all unvisited neighbors next to cell and return a random one
+        List<Cell> a = new List<>();
         if(cell.getCol() > 0 && !maze[cell.getCol() - 1][cell.getRow()].isVisited())
             a.add(maze[cell.getCol() - 1][cell.getRow()]);
         if(cell.getRow() > 0 && !maze[cell.getCol()][cell.getRow()-1].isVisited())
@@ -62,4 +61,3 @@ public class MazeGenerator {
             return null;
     }
 }
-

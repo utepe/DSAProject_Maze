@@ -7,7 +7,6 @@ public class Cell {
     private int col, row; // col, row position of the cell.
     private boolean visited = false; // has this cell already  been visited?
     private boolean solution = false; // is this cell part of the most optimal path?
-    private boolean deadEnd = false;
 
     private double distance;
 
@@ -23,9 +22,7 @@ public class Cell {
             setCellColor(g, Color.WHITE);
         }
         if (isSolution()) { // cells that are part of the most optimal solution are yellow
-            setCellColor(g, Color.BLUE);
-        } else if (isDeadEnd()) { // cells that lead to a dead end are red
-            setCellColor(g, Color.RED);
+            setCellColor(g, Color.YELLOW);
         }
 
         // draw the walls if there are any
@@ -107,14 +104,6 @@ public class Cell {
 
     public void setPath(boolean solution) {
         this.solution = solution;
-    }
-
-    public boolean isDeadEnd() {
-        return deadEnd;
-    }
-
-    public void setDeadEnd(boolean deadEnd) {
-        this.deadEnd = deadEnd;
     }
 
     public double getDistance() {

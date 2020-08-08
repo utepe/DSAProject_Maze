@@ -6,7 +6,6 @@ import java.awt.*;
 class MazePanel extends JPanel {
 
     Cell[][] maze;
-    JFrame frame;
 
     public MazePanel(Cell[][] maze){
         this.maze = maze;

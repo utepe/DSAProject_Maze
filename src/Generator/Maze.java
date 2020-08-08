@@ -4,7 +4,7 @@ import Solver.*;
 import java.util.Scanner;
 
 public class Maze {
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception{
         MazeGenerator generated = new MazeGenerator(); // initialize and generate the maze using recursive backtracking
         Scanner sc = new Scanner(System.in);
         System.out.println("Maze Generator & Solver Menu");
