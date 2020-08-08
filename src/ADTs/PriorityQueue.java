@@ -1,3 +1,5 @@
+package ADTs;
+
 public class PriorityQueue<E>{
     private PNode<E> head, tail; // head and tail point to first and last nodes
     private int size, maxSize;

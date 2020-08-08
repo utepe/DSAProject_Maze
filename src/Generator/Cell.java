@@ -8,9 +8,14 @@ public class Cell {
     private boolean visited = false; // has this cell already  been visited?
     private boolean solution = false; // is this cell part of the most optimal path?
 
+    private boolean visitedBFS = false; // used for solving using breadth-first search
+ 
+    Cell parent; // points to previous cell in solution path
+
     private double distance;
 
     private boolean[] walls = {true, true, true, true}; // N E S W walls. true = a wall is present
+
 
     public Cell(int col, int row){ // constructor
         this.col = col;
@@ -112,5 +117,13 @@ public class Cell {
 
     public void setDistance(double distance) {
         this.distance = distance;
+    }
+
+    public boolean isVisitedBFS() {
+        return visitedBFS;
+    }
+
+    public void setVisitedBFS(boolean visitedBFS) {
+        this.visitedBFS = visitedBFS;
     }
 }

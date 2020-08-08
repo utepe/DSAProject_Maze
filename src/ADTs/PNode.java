@@ -1,3 +1,5 @@
+package ADTs;
+
 public class PNode<E>{
     E data; // holds data of type e
     PNode<E> next; // points to next node
