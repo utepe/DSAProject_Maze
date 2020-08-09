@@ -1,12 +1,16 @@
 package Solver;
 
+import ADTs.List;
+import ADTs.Queue;
+import Generator.Cell;
+
 public class BFSSolver {
     Queue<Cell> queue; // queue used for BFS
     public Cell[][] maze; // maze that we will pass into the solver
 
     public BFSSolver(Cell[][] maze) throws Exception { // constructor throws exception for list implementation
         this.maze = maze;
-        queue = new Queue(maze.length * maze.length);
+        queue = new Queue<>();
         solve();
     }
 

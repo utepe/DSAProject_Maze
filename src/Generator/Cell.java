@@ -10,7 +10,7 @@ public class Cell {
 
     private boolean visitedBFS = false; // used for solving using breadth-first search
  
-    Cell parent; // points to previous cell in solution path
+    public Cell parent; // points to previous cell in solution path
 
     private double distance;
 
