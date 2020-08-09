@@ -107,7 +107,3 @@ public class Queue<E> {
         System.out.println("<- last");
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> f747da157ae3c868da409548f7fd698ed2dffbf9
