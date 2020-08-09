@@ -30,9 +30,9 @@ public class Maze {
                                 MazePanel.BuildGUI(solver2.maze);
                                 break;
                         case 4:
-                                // BFSSolver solver3 = new BFSSolver(generated.maze);
-                                // MazePanel.BuildGUI(solver3.maze);
-                                // break;
+                                BFSSolver solver3 = new BFSSolver(generated.maze);
+                                MazePanel.BuildGUI(solver3.maze);
+                                break;
                         default:
                                 flag = false;
                                 break;
