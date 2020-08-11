@@ -16,7 +16,7 @@ public class BFSSolver {
 
     private void solve() throws Exception {
         Cell current, next; // current and next cells used as temporary variables
-        maze[0][0].setVisitedBFS(true);  // mark the start of the cell as visited and queue it in the queue
+        maze[0][0].setVisitedSolution(true);  // mark the start of the cell as visited and queue it in the queue
         queue.enqueue(maze[0][0]);
         boolean flag = false; // flag variable used to halt once solution ends
 
@@ -34,8 +34,8 @@ public class BFSSolver {
             if(!flag) {
                 for (int i = 0; i < getNeighbors(current).size; i++) { // loop through each available neighbor of the current cell
                     next = getNeighbors(current).get(i);
-                    if (!next.isVisitedBFS()) { // if we haven't visited the next cell, set it as visited, set its parent as current. and enqueue it
-                        next.setVisitedBFS(true);
+                    if (!next.isVisitedSolution()) { // if we haven't visited the next cell, set it as visited, set its parent as current. and enqueue it
+                        next.setVisitedSolution(true);
                         next.parent = current;
                         queue.enqueue(next);
                     }

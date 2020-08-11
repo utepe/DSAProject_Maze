@@ -2,6 +2,7 @@ package Generator;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Scanner;
 
 class MazePanel extends JPanel {
 
@@ -33,5 +34,10 @@ class MazePanel extends JPanel {
         frame.setResizable(false);
         frame.setVisible(true);
         frame.setResizable(true);
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("Press e to exit window: ");
+        if(in.nextLine().equalsIgnoreCase("e"))
+            frame.dispose();
     }
 }
