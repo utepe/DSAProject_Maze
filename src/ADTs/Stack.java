@@ -4,7 +4,10 @@ public class Stack<E> {
     private Node<E> top, bottom;
     private int size;
 
-
+    /**
+     * Static Nested Node Class
+     * @param <E>
+     */
     static class Node<E> {
         Node<E> next;
         E data;

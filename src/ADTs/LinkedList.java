@@ -5,20 +5,36 @@ public class LinkedList<E> {
     private Node<E> tail;
     private int length;
 
+    /**
+     * Static Nested Node Class
+     * @param <E>
+     */
     static class Node<E> {
         Node<E> next;
         E data;
-    
+        
+        /**
+         * Nest Class Constructor
+         * @param data
+         */
         public Node(E data){
             this.data = data;
             this.next = null;
         }
     }
 
+    /**
+     * LinkedList Constructor
+     */
     public LinkedList(){
         this.length = 0;
     }
 
+    /**
+     * insertFirst Method
+     * inserts element to front of LL
+     * @param data
+     */
     public void insertFirst(E data){
         Node<E> newNode = new Node<E>(data);
         if(isEmpty()) initialInsert(newNode);
@@ -29,10 +45,21 @@ public class LinkedList<E> {
         }
     }
 
+    /**
+     * push Method
+     * for LL based Stack imp
+     * @param data
+     */
     public void push(E data){
         insertFirst(data);
     }
 
+    /**
+     * insertAt Method
+     * inserts element at desired index
+     * @param index
+     * @param data
+     */
     public void insertAt(int index, E data){
         Node<E> newNode = new Node<E>(data);
         if (index >= this.length) insertLast(data);
@@ -46,6 +73,11 @@ public class LinkedList<E> {
         }
     }
 
+    /**
+     * insertLast Method
+     * inserts element at end of LL
+     * @param data
+     */
     public void insertLast(E data) {
         Node<E> newNode = new Node<E>(data);
         if(isEmpty()) initialInsert(newNode);
@@ -56,12 +88,21 @@ public class LinkedList<E> {
         }
     }
 
+    /**
+     * deleteFirst Method
+     * deletes the first element of the LL
+     */
     public void deleteFirst(){
         if(isEmpty()) return;
         this.head = this.head.next;
         this.length--;
     }
 
+    /**
+     * pop Method for Stack imp
+     * deletes and returns the element at the front of the LL
+     * @return data
+     */
     public E pop(){
         if(isEmpty()) return null;
         E data = this.head.data;
@@ -70,6 +111,11 @@ public class LinkedList<E> {
         return data;
     }
 
+    /**
+     * deleteAt Method
+     * deletes the element at the desired index
+     * @param index
+     */
     public void deleteAt(int index){
         if(isEmpty()) return;
         Node<E> prevNode = traverseToIndex(index - 1);
@@ -88,6 +134,10 @@ public class LinkedList<E> {
         this.length--;
     }
 
+    /**
+     * printList Method
+     * prints the list from head to tail
+     */
     public void printList(){
         Node<E> currentNode = this.head;
         System.out.print("head -> ");
@@ -98,6 +148,10 @@ public class LinkedList<E> {
         System.out.println("tail");
     }
 
+    /**
+     * reverseMethod
+     * reverses the LL
+     */
     public void reverse(){
         if(this.head.next == null) return;
         Node<E> prev = this.head;
@@ -114,6 +168,12 @@ public class LinkedList<E> {
         this.head = prev;
     }
 
+    /**
+     * isContain Method
+     * checks if the LL contains the passed in element
+     * @param data
+     * @return boolean
+     */
     public boolean isContain(E data){
         Node<E> current = this.head;
         while(current.next != null){
@@ -123,6 +183,11 @@ public class LinkedList<E> {
         return false;
     }
 
+    /**
+     * size Method
+     * returns the length of the LL
+     * @return
+     */
     public int size(){
         return this.length;
     }
@@ -132,7 +197,13 @@ public class LinkedList<E> {
         this.tail = this.head;
         this.length++;
     }
-
+    
+    /**
+     * traverseToIndex Method
+     * traverses to and returns the node at the specified index
+     * @param index
+     * @return Node<E>
+     */
     private Node<E> traverseToIndex(int index) {
         int counter = 0;
         Node<E> currentNode = this.head;
@@ -143,10 +214,20 @@ public class LinkedList<E> {
         return currentNode;
     }
 
-    public Boolean isEmpty(){
+    /**
+     * isEmpty Method
+     * returns true is the LL is empty
+     * @return boolean
+     */
+    public boolean isEmpty(){
         return this.length == 0;
     }
 
+    /**
+     * peek Method for Stack imp
+     * returns the top element of the data (doesn't remove)
+     * @return
+     */
 	public E peek() {
 		return this.head.data;
 	}

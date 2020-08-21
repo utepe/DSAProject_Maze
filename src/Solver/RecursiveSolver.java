@@ -11,20 +11,29 @@ public class RecursiveSolver {
     int startX = 0, startY = 0;
     int endX = cols-1, endY = rows-1;
 
-
+    /**
+     * Recursive Solver Class
+     * @param maze
+     */
     public RecursiveSolver(Cell[][] maze){
         this.maze = maze;
         solutionPath = maze;
         for(int i = 0; i < cols; i++){
             for (int j = 0; j < rows; j++) {
                 solutionPath[i][j].setVisited(false);
-
             }
         }
         solveMaze(startX, startY);
         this.maze = solutionPath;
     }
 
+    /**
+     * solveMaze Method
+     * recurisvely solves the maze
+     * @param x
+     * @param y
+     * @return
+     */
     public boolean solveMaze(int x, int y) {
         if(x == endX && y == endY) return true;
         if(solutionPath[x][y].isVisited()) return false; //checks if it was already visited
@@ -56,20 +65,39 @@ public class RecursiveSolver {
         return false;
     }
 
+    /**
+     * checks if the current cell has a west wall
+     * @param cell
+     * @return boolean
+     */
     private boolean hasWestWall(Cell cell){
         return cell.getWalls()[3];  //if the cell has a wall to the left of it then return true
     }
 
+    /**
+     * checks if the current cell has a north wall
+     * @param cell
+     * @return boolean
+     */
     private boolean hasNorthWall(Cell cell){
         return cell.getWalls()[0];  //if the cell has a wall to the north of it then return true
     }
 
+    /**
+     * checks if the current cell has a east wall
+     * @param cell
+     * @return boolean
+     */
     private boolean hasEastWall(Cell cell){
         return cell.getWalls()[1]; //if the cell has a wall to the right of it then return true
     }
 
+    /**
+     * checks if the current cell has a south wall
+     * @param cell
+     * @return boolean
+     */
     private boolean hasSouthWall(Cell cell){
         return cell.getWalls()[2]; //if the cell has a wall to the south of it then return true
-
     }
 }

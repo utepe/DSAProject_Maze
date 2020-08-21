@@ -5,14 +5,25 @@ public class List<E> {
     private E[] data;
     public int size;
 
+    /**
+     * List Constructor
+     */
     public List(){
         this.data = (E[]) new Object[DEFAULT_SIZE];
     }
 
+    /**
+     * Overloaded List Constructor
+     * @param size
+     */
     public List(int size){
         this.data = (E[]) new Object[size];
     }
 
+    /**
+     * Appends the specified element to the end of this list.
+     * @param ele
+     */
     public void add(E ele){
         if(this.size == this.data.length){
             ensureCapacity();
@@ -20,19 +31,36 @@ public class List<E> {
         this.data[this.size++] = ele;
     }
 
+    /**
+     * Inserts the specified element at the specified position in this list.
+     * @param index
+     * @param ele
+     */
     public void add(int index, E ele){
         if(index >= this.data.length){
             ensureCapacity(index);
         }
         this.data[this.size++] = ele;
     }
-
+    
+    /**
+     * Replaces the element at the specified position in this list with the specified element.
+     * @param index
+     * @param ele
+     * @throws Exception
+     */
     public void set(int index, E ele) throws Exception {
         if(index >= this.data.length) throw new Exception("ArrayIndexOutofBounds");
         if(index < 0) throw new Exception("Cannot Get: Negative Index Entered");
         this.data[index] = ele;
     }
 
+    /**
+     * Increases the capacity of this ArrayList instance, if necessary, 
+     * to ensure that it can hold at least the number of elements specified
+     * by the minimum capacity argument.
+     * @param index
+     */
     private void ensureCapacity(int index) {
         E[] newData = (E[]) new Object[index];
         for (int i = 0; i < this.data.length; i++) {
@@ -49,12 +77,23 @@ public class List<E> {
         this.data = newData;
     }
 
+    /**
+     * Returns the element at the specified position in this list.
+     * @param index
+     * @return E
+     * @throws Exception
+     */
     public E get(int index) throws Exception {
         if(index >= this.data.length) throw new Exception("ArrayIndexOutofBounds");
         if(index < 0) throw new Exception("Cannot Get: Negative Index Entered");
         return this.data[index];
     }
 
+    /**
+     * Removes the element at the specified position in this list.
+     * @param index
+     * @throws Exception
+     */
     public void remove(int index) throws Exception {
         if(index >= this.data.length) throw new Exception("ArrayIndexOutofBounds");
         if(index < 0) throw new Exception("Cannot Get: Negative Index Entered");
@@ -63,6 +102,12 @@ public class List<E> {
         }
     }
 
+    /**
+     * Removes the first occurrence
+     * of the specified element from this list, if it is present.
+     * @param ele
+     * @throws Exception
+     */
     public void remove(E ele) throws Exception {
         if(!isContain(ele)) throw new Exception("Element not in Array");
         int counter = 0;
@@ -74,6 +119,11 @@ public class List<E> {
         }
     }
 
+    /**
+     * Returns if the specified element is in this list
+     * @param ele
+     * @return boolean
+     */
     public boolean isContain(E ele){
         for (int i = 0; i < this.data.length; i++) {
             if(this.data == ele){
@@ -83,10 +133,18 @@ public class List<E> {
         return false;
     }
 
+    /**
+     * Returns the number of elements in this list.
+     * @return int
+     */
     public int size(){
         return this.size;
     }
 
+    /**
+     * Returns true if this list contains no elements
+     * @return boolean
+     */
     public boolean isEmpty(){
         return this.size == 0;
     }
