@@ -14,11 +14,9 @@ public class RecursiveSolver {
 
     public RecursiveSolver(Cell[][] maze){
         this.maze = maze;
-        wasHere = maze;
         solutionPath = maze;
         for(int i = 0; i < cols; i++){
             for (int j = 0; j < rows; j++) {
-                wasHere[i][j].setVisited(false);
                 solutionPath[i][j].setVisited(false);
 
             }
@@ -29,8 +27,8 @@ public class RecursiveSolver {
 
     public boolean solveMaze(int x, int y) {
         if(x == endX && y == endY) return true;
-        if(wasHere[x][y].isVisited()) return false; //checks if it was already visited
-        wasHere[x][y].setVisited(true); //setting visited to true for next recursice call
+        if(solutionPath[x][y].isVisited()) return false; //checks if it was already visited
+        solutionPath[x][y].setVisited(true); //setting visited to true for next recursice call
         if(x != 0 && !hasWestWall(this.maze[x][y])){
             if(solveMaze(x-1, y)) { //recurivsely calls the left of current pos
                 solutionPath[x][y].setPath(true); //set path to true
