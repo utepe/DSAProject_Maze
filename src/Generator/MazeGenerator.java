@@ -10,7 +10,7 @@ import java.util.Random;
 public class MazeGenerator {
     Cell[][] maze;
     JFrame frame;
-    public static final int MAZE_SIZE = 100;
+    public static int MAZE_SIZE; // maze dimensions
     int cols = MAZE_SIZE;
     int rows = MAZE_SIZE;
 

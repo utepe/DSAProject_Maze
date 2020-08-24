@@ -5,11 +5,17 @@ import java.util.Scanner;
 
 public class Maze {
     public static void main(String[] args) throws Exception {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the dimension of the maze: "); // user can enter the dimensions of the maze
+        int dims = sc.nextInt();
+        MazeGenerator.MAZE_SIZE = dims;
+        Cell.CELL_DIMS = 800 / dims;
+
         long startTime = System.nanoTime(); 
         MazeGenerator generated = new MazeGenerator(); // initialize and generate the maze using recursive backtracking
         long endTime = System.nanoTime();
         System.out.println("Generating maze took: " + (endTime - startTime) / 1000000 + " ms"); // print the time it takes to generate a maze in ms
-        Scanner sc = new Scanner(System.in);
         System.out.println("Maze Generator & Solver Menu");
         System.out.println("-----------------------------");
         boolean flag = true;
