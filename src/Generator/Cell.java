@@ -3,7 +3,7 @@ package Generator;
 import java.awt.*;
 
 public class Cell {
-    public static final int CELL_DIMS = 5;
+    public static int CELL_DIMS; // how big each cell is
     private int col, row; // col, row position of the cell.
     private boolean visited = false; // has this cell already  been visited?
     private boolean solution = false; // is this cell part of the most optimal path?
